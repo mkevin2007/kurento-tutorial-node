@@ -132,7 +132,9 @@
             </div>
           </div>
           <br/>
-          <label class="control-label" for="console">Console</label><br><br>
+          <label class="control-label" for="console">Console</label> 
+          <button id="buttonConsole" class="btn btn-link" onclick="toggleConsole()">Hide Console</button>
+          <br><br>
           <div id="console" class="democonsole">
             <ul></ul>
           </div>
@@ -259,6 +261,15 @@ jQuery('body').tooltip({'selector':'a[rel=tooltip]'});
     jQuery(document).ready(function() {
         App.init();
     });
+
+function toggleConsole(){
+  $("#console").toggle();
+  if( $("#buttonConsole").html() === "Hide Console")
+    $("#buttonConsole").html("Show Console");
+  else
+    $("#buttonConsole").html("Hide Console");
+}
+
 
 /*]]>*/
 </script>
