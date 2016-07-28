@@ -24,6 +24,9 @@ window.onload = function() {
 	document.getElementById('call').addEventListener('click', function() { presenter(); } );
 	document.getElementById('viewer').addEventListener('click', function() { viewer(); } );
 	document.getElementById('terminate').addEventListener('click', function() { stop(); } );
+		document.getElementById('register').addEventListener('click', function() {
+		register();
+	});
 }
 
 window.onbeforeunload = function() {
@@ -47,8 +50,22 @@ ws.onmessage = function(message) {
 	case 'iceCandidate':
 		webRtcPeer.addIceCandidate(parsedMessage.candidate)
 		break;
+	case 'registerResponse':
+		resgisterResponse(parsedMessage);
+		break;
 	default:
 		console.error('Unrecognized message', parsedMessage);
+	}
+}
+
+function resgisterResponse(message) {
+	if (message.response == 'accepted') {
+		setRegisterState(REGISTERED);
+	} else {
+		var errorMessage = message.message ? message.message
+				: 'Unknown reason for register rejection.';
+		console.log(errorMessage);
+		alert('Error registering user. See console for further information.');
 	}
 }
 
@@ -83,6 +100,8 @@ function presenter() {
 
 		webRtcPeer = kurentoUtils.WebRtcPeer.WebRtcPeerSendonly(options, function(error) {
 			if(error) return onError(error);
+
+			console.log(webRtcPeer);
 
 			this.generateOffer(onOfferPresenter);
 		});
@@ -152,6 +171,20 @@ function dispose() {
 		webRtcPeer = null;
 	}
 	hideSpinner(video);
+}
+
+function register() {
+	var name = 'Bob';
+	if (name == '') {
+		window.alert("You must insert your user name");
+		return;
+	}
+
+	var message = {
+		id : 'register',
+		name : name
+	};
+	sendMessage(message);
 }
 
 function sendMessage(message) {
