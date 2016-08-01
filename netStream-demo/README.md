@@ -6,8 +6,7 @@ Netstream Node.js Demo: WebRTC one to many video call.
 Important Files
 =====================
 
-static/index.html: markup 
-
+static/index.html: markup <br>
 static/css/netStream.css: style-sheet
 static/js/index.js: client-side code 
 server.js: server-side code
