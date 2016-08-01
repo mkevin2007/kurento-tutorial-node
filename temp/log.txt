@@ -1,6 +1,0 @@
-
-> kurento-one2many-call@6.2.2-dev start /home/ubuntu/netStream/netStream-demo
-> node server.js
-
-Kurento Tutorial started
-Open https://webrtc.chatnet.io:8443/ with a WebRTC capable browser
