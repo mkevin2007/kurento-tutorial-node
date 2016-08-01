@@ -3,7 +3,7 @@
 [![Docker badge](https://img.shields.io/docker/pulls/fiware/orion.svg)](https://hub.docker.com/r/fiware/stream-oriented-kurento/)
 [![Support badge]( https://img.shields.io/badge/support-sof-yellowgreen.svg)](http://stackoverflow.com/questions/tagged/kurento)
 
-<img id="logo-header" src="static/images/netsfere-logo.png" height="50px" alt="NetSfere Logo">
+<img id="logo-header" src="static/images/netsfere-logo.png" height="100px" alt="NetSfere Logo">
 
 NetStream-demo
 =====================
