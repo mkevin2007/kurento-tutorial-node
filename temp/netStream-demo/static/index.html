@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <link rel="shortcut icon" href="img/AppIcon64x64.png" type="image/png" />
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600|Inconsolata">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/css/pages/page_contact.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/css/headers/header-v5.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/css/footers/footer-v1.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/plugins/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/plugins/line-icons/line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/plugins/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/css/theme-colors/red.css" />
+    <link rel="stylesheet" type="text/css" href="/unify/assets/css/custom.css" />
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/demo-console/index.css">
+    <link rel="stylesheet" href="bower_components/ekko-lightbox/dist/ekko-lightbox.min.css">
+    <link rel="stylesheet" href="css/kurento.css">
+
+    <title>NetStream Demo</title>
+  </head>
+
+<body>
+<div class="wrapper">
+    <!--=== Header ===-->
+    <div class="header-v5 bg-grey" style="border-top: 0">
+
+            <!-- Topbar -->
+            <div class="topbar-v3 bg-red">
+               <div class="container">
+                 <div class="row">
+                  <div class="col-sm-6">
+                  </div>
+                  <div class="col-sm-6">
+                     <ul class="list-inline right-topbar pull-right">
+                        <li> </li>
+                     </ul>
+               </div> <!-- col-sm-6 -->
+               </div> <!-- row -->
+               </div> <!-- container -->
+            </div> <!-- End Topbar -->
+
+        <!-- Navbar -->
+
+        <div class="navbar navbar-default mega-menu" role="navigation">
+        <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="//www.netsfere.com">
+                         <img id="logo-header" src="/images/netsfere-logo.png" height="50px" alt="NetSfere Logo">
+                    </a>
+                </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+
+         <ul class="nav navbar-nav pull-right" id="yw0">
+        <li><a href="//infinite-convergence.com">Home</a></li>
+        <li><a href="//infinite-convergence.com/support">Support</a></li>
+        <li><a href="//infinite-convergence.com/contact">Contact Us</a></li>
+        <li><a href="//infinite-convergence.com/aboutus">About</a></li>
+</ul>        </div> <!-- navbar-collapse -->
+       </div> <!-- container -->
+    </div> <!--navbar -->
+   </div> <!-- header -->
+    <!--=== End Header ===-->
+
+    <!--=== Breadcrumbs ===-->
+      <!-- <div class="breadcrumbs">
+        <div class="container">
+                          <h1 class="pull-left"><i class='fa fa-credit-card'></i> NetStream Demo</h1>
+                                </div>--><!--/container-->
+    </div><!--/breadcrumbs-->
+       <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content ===-->
+    <!-- Write Your HTML Codes Here -->
+
+<style type="text/css">
+.sky-form em.state-error
+{
+        display: block;
+        margin-top: 6px;
+        padding: 0 1px;
+        font-style: normal;
+        font-size: 11px;
+        line-height: 15px;
+        color: #ee9393;
+}
+.color-red  li {
+  list-style-type: none;
+  color: #e74c3c !important;
+}
+.tag-red-border {
+  border-color: #e74c3c;
+}
+.center-block {float: none !important}
+</style>
+
+ <div class="container">
+      <div class="page-header">
+        <h1>NetStream Demo</h1>
+        <p>
+          This web application consists on an one to many video call using
+          <a href="http://www.webrtc.org/">WebRTC</a>. In other words, this is
+          an implementation of a video broadcasting application. There are two
+          types of users in this application: 1 peer sending media (let's call
+          it <i>Presenter</i>) and N peers receiving the media of the <i>Presenter</i>
+          (let's call them <i>Viewers</i>). Thus, the <a
+            href="img/pipeline.png" data-toggle="lightbox"
+            data-title="Video Call 1 to N Media Pipeline"
+            data-footer="1 WebRtcEnpoint (Presenter) is set in SendOnly mode, and its stream is sent to N WebRtcEnpoints (Viewers), whics are set in RecvOnly mode.">Media
+            Pipeline</a> is composed by 1+N interconnected <i>WebRtcEndpoints</i>.
+          To run this demo follow these steps:
+        </p>
+        <ol>
+          <li>
+            Open this page with a browser compliant with WebRTC (Chrome,
+            Firefox).</li>
+          <li>
+            If you would like to be the Presenter of the communication, enter 
+            your name and click on <i>Present</i> button. If a presenter with a given name
+            is already present, the application returns an error (see the the console).
+          </li>
+          <li>
+            Grant the access to the camera and microphone. After the SDP
+            negotiation the communication should start.
+          </li>
+          <li>
+            In a different machine (or a different tab in the same browser), enter the 
+            name of the presenter you want to view and 
+            click on <i>View</i> button to see the Presenter's stream.
+          </li>
+          <li>
+            Click on <i>Stop</i> to finish the communication. When the <i>Presenter</i>
+            clicks on <i>Stop</i>, the rest of <i>Viewers</i> (if any) ends the
+            communication too.
+          </li>
+        </ol>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="row">
+            <div class="col-md-12">
+              <label class="control-label" for="name">Name</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <input id="name" name="name" class="form-control" type="text"/>
+                </div>
+                <div class="col-md-6 text-right">
+                  <a id="call" class="btn btn-success">
+                    <span class="glyphicon glyphicon-play"></span> Present</a>
+                </div>
+              </div>
+              <br/>
+              <label class="control-label" for="peer">Peer</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <input id="peer" name="peer" class="form-control" type="text">
+                </div>
+                <div class="col-md-6 text-right">
+                  <a id="viewer" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-user"></span> View</a>
+                  <a id="terminate" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-stop"></span> Stop</a>
+                </div>
+              </div>
+            <br/>
+            </div>
+          </div>
+          <br/>
+          <label class="control-label" for="console">Console</label> 
+          <button id="buttonConsole" class="btn btn-link" onclick="toggleConsole()">Hide Console</button>
+          <br><br>
+          <div id="console" class="democonsole">
+            <ul></ul>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div id="videoBig">
+            <video id="video" autoplay width="640px" height="480px" poster="img/webrtc.png"></video>
+          </div>
+          </br>
+          </br>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+    <!--=== End Content ===-->
+
+    <!--=== Footer Version 1 ===-->
+    <div class="footer-v1">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+
+                     <!-- About -->
+                    <div class="col-md-7 md-margin-bottom-10">
+                        <a href="/"><img id="logo-footer" class="footer-logo" src="/images/infinite-logo.png" alt=""></a>
+                        <p class="hidden-sm hidden-xs">
+                                Infinite Convergence's Enterprise Messaging Service (EMS) enables enterprises to better engage their customers and
+                                partners globally in a secured, reliable and cost-effective way. The Enterprise Messaging Service's unique solutions,
+                                which leverage 2000 years of combined carrier-grade messaging experience in delivering trillions of messages globally,
+                                are tailored to the enterprise or its industry needs, which enhances ROI and time-to-market for the enterprises.
+                        </p>
+                    </div><!--/col-md-7-->
+                    <!-- End About -->
+
+
+                    <div class="col-md-2 md-margin-bottom-10">
+                        <div class="headline"><h2>Product</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a href="//infinite-convergence.com/enterprise-messaging-service">Enterprise Messaging</a></li>
+                            <li><a href="//infinite-convergence.com/enterprise-messaging-service-plus">EMS Plus</a></li>
+                            <li><a href="//infinite-convergence.com/ems-flex">EMS Flex</a></li>
+                            <li><a href="//infinite-convergence.com/ems-api">EMS API</a></li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Link List -->
+                    <div class="col-md-3 map-img md-margin-bottom-10">
+                        <div class="headline"><h2>Company</h2></div>
+                        <ul class="list-unstyled link-list">
+                                         <li><a href="//infinite-convergence.com/aboutus">About us</a></li>
+                            <li><a href="//infinite-convergence.com/contact">Contact us</a></li>
+                            <li><a href="//infinite-convergence.com/support">Support</a></li>
+                            <li><a href="//infinite-convergence.com/news">News & Events</a></li>
+                            <li><a href="//infinite-convergence.com/awards">Award & Recognitions</a></li>
+                        </ul>
+                    </div><!--/col-md-3-->
+                    <!-- End Link List -->
+                </div>
+            </div>
+        </div><!--/footer-->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>
+                            2016 &copy; Infinite Convergence Solutions, Inc.
+                           <a href="#">Privacy Policy</a> |
+                           <a href="#">Terms of Service</a>
+                        </p>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="col-md-4">
+                        <ul class="footer-socials list-inline">
+                            <li>
+                                <a href="http://www.facebook.com/InfiniteConvergenceSolutions" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://twitter.com/nxtgenmsg" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.linkedin.com/company/infinite-convergence-solutions" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.youtube.com/channel/UCuyTefiwx98sT_QUs-8reBA" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="YouTube">
+                                    <i class="fa fa-youtube"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Social Links -->
+                </div>
+            </div>
+        </div><!--/copyright-->
+    </div>    
+    <!--=== End Footer Version 1 ===-->
+</div>
+<script type="text/javascript" src="/unify/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script type="text/javascript" src="/unify/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="/unify/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="/unify/assets/js/custom.js"></script>
+<script type="text/javascript" src="/unify/assets/js/app.js"></script>
+
+    <script src="bower_components/adapter.js/adapter.js"></script>
+    <script src="bower_components/demo-console/index.js"></script>
+    <script src="bower_components/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+
+    <script src="bower_components/kurento-utils/js/kurento-utils.js"></script>
+
+    <script src="js/index.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery('body').popover({'selector':'a[rel=popover]'});
+jQuery('body').tooltip({'selector':'a[rel=tooltip]'});
+
+    jQuery(document).ready(function() {
+        App.init();
+    });
+
+function toggleConsole(){
+  $("#console").toggle();
+  if( $("#buttonConsole").html() === "Hide Console")
+    $("#buttonConsole").html("Show Console");
+  else
+    $("#buttonConsole").html("Hide Console");
+}
+
+
+/*]]>*/
+</script>
+  </body>
+</html>
