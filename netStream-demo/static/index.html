@@ -85,10 +85,10 @@
     <!--=== End Header ===-->
 
     <!--=== Breadcrumbs ===-->
-       <div class="breadcrumbs">
+      <!-- <div class="breadcrumbs">
         <div class="container">
                           <h1 class="pull-left"><i class='fa fa-credit-card'></i> NetStream Demo</h1>
-                                </div><!--/container-->
+                                </div>--><!--/container-->
     </div><!--/breadcrumbs-->
        <!--=== End Breadcrumbs ===-->
 
@@ -116,38 +116,75 @@
 .center-block {float: none !important}
 </style>
 
-<div class="container content height-400">
-
+ <div class="container">
       <div class="page-header">
+        <h1>NetStream Demo</h1>
+        <p>
+          This web application consists on an one to many video call using
+          <a href="http://www.webrtc.org/">WebRTC</a>. In other words, this is
+          an implementation of a video broadcasting application. There are two
+          types of users in this application: 1 peer sending media (let's call
+          it <i>Presenter</i>) and N peers receiving the media of the <i>Presenter</i>
+          (let's call them <i>Viewers</i>). Thus, the <a
+            href="img/pipeline.png" data-toggle="lightbox"
+            data-title="Video Call 1 to N Media Pipeline"
+            data-footer="1 WebRtcEnpoint (Presenter) is set in SendOnly mode, and its stream is sent to N WebRtcEnpoints (Viewers), whics are set in RecvOnly mode.">Media
+            Pipeline</a> is composed by 1+N interconnected <i>WebRtcEndpoints</i>.
+          To run this demo follow these steps:
+        </p>
+        <ol>
+          <li>
+            Open this page with a browser compliant with WebRTC (Chrome,
+            Firefox).</li>
+          <li>
+            If you would like to be the Presenter of the communication, enter 
+            your name and click on <i>Present</i> button. If a presenter with a given name
+            is already present, the application returns an error (see the the console).
+          </li>
+          <li>
+            Grant the access to the camera and microphone. After the SDP
+            negotiation the communication should start.
+          </li>
+          <li>
+            In a different machine (or a different tab in the same browser), enter the 
+            name of the presenter you want to view and 
+            click on <i>View</i> button to see the Presenter's stream.
+          </li>
+          <li>
+            Click on <i>Stop</i> to finish the communication. When the <i>Presenter</i>
+            clicks on <i>Stop</i>, the rest of <i>Viewers</i> (if any) ends the
+            communication too.
+          </li>
+        </ol>
+      </div>
       <div class="row">
         <div class="col-md-5">
           <div class="row">
             <div class="col-md-12">
-                          <label class="control-label" for="name">Name</label>
-          <div class="row">
-            <div class="col-md-6">
-              <input id="name" name="name" class="form-control" type="text"/>
-            </div>
-            <div class="col-md-6 text-right">
-              <a id="call" href="#" class="btn btn-success">
-                <span class="glyphicon glyphicon-play"></span> Present</a>
-            </div>
-          </div>
-          <br/>
-          <br/>
-          <label class="control-label" for="peer">Peer</label>
-          <div class="row">
-            <div class="col-md-6">
-              <input id="peer" name="peer" class="form-control" type="text">
-            </div>
-            <div class="col-md-6 text-right">
-              <a id="viewer" href="#" class="btn btn-primary">
-                <span class="glyphicon glyphicon-user"></span> View</a>
-              <a id="terminate" href="#" class="btn btn-danger">
-                <span class="glyphicon glyphicon-stop"></span> Stop</a>
-            </div>
-          </div>
-          <br/>
+              <label class="control-label" for="name">Name</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <input id="name" name="name" class="form-control" type="text"/>
+                </div>
+                <div class="col-md-6 text-right">
+                  <a id="call" class="btn btn-success">
+                    <span class="glyphicon glyphicon-play"></span> Present</a>
+                </div>
+              </div>
+              <br/>
+              <label class="control-label" for="peer">Peer</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <input id="peer" name="peer" class="form-control" type="text">
+                </div>
+                <div class="col-md-6 text-right">
+                  <a id="viewer" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-user"></span> View</a>
+                  <a id="terminate" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-stop"></span> Stop</a>
+                </div>
+              </div>
+            <br/>
             </div>
           </div>
           <br/>
@@ -162,6 +199,8 @@
           <div id="videoBig">
             <video id="video" autoplay width="640px" height="480px" poster="img/webrtc.png"></video>
           </div>
+          </br>
+          </br>
         </div>
       </div>
     </div>

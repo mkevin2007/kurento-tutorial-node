@@ -16,6 +16,8 @@
 var ws = new WebSocket('wss://' + location.host + '/one2many');
 var video;
 var webRtcPeer;
+var namePeer;
+var namePresenter;
 
 window.onload = function() {
 	console = new Console();
@@ -24,9 +26,7 @@ window.onload = function() {
 	document.getElementById('call').addEventListener('click', function() { presenter(); } );
 	document.getElementById('viewer').addEventListener('click', function() { viewer(); } );
 	document.getElementById('terminate').addEventListener('click', function() { stop(); } );
-		document.getElementById('register').addEventListener('click', function() {
-		register();
-	});
+		//document.getElementById('register').addEventListener('click', function() {register();});
 }
 
 window.onbeforeunload = function() {
@@ -90,6 +90,9 @@ function viewerResponse(message) {
 }
 
 function presenter() {
+
+	namePresenter = document.getElementById('name').value;
+
 	if (!webRtcPeer) {
 		showSpinner(video);
 
@@ -113,12 +116,20 @@ function onOfferPresenter(error, offerSdp) {
 
 	var message = {
 		id : 'presenter',
-		sdpOffer : offerSdp
+		sdpOffer : offerSdp,
+		presenter: namePresenter
 	};
 	sendMessage(message);
 }
 
 function viewer() {
+	if (document.getElementById('peer').value == '') {
+		window.alert("You must specify the peer name");
+		return;
+	}
+
+	namePeer = document.getElementById('peer').value;
+
 	if (!webRtcPeer) {
 		showSpinner(video);
 
@@ -140,6 +151,7 @@ function onOfferViewer(error, offerSdp) {
 
 	var message = {
 		id : 'viewer',
+		peer : namePeer, 
 		sdpOffer : offerSdp
 	}
 	sendMessage(message);
@@ -158,7 +170,9 @@ function onIceCandidate(candidate) {
 function stop() {
 	if (webRtcPeer) {
 		var message = {
-				id : 'stop'
+				id : 'stop',
+				peer: namePeer,
+				name: namePresenter
 		}
 		sendMessage(message);
 		dispose();
