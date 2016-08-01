@@ -21,6 +21,6 @@ Important Files
 Debugging help
 =====================
 
-There are lots of error logs for both the console and the client.
+There are lots of error logs for both the server and the client.
 If the server log gets too long for the terminal run this: npm start | tee log.txt.
 This will put your error logs in another file called log.txt.
