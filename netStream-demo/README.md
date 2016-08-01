@@ -7,6 +7,7 @@ Important Files
 =====================
 
 static/index.html: markup 
+
 static/css/netStream.css: style-sheet
 static/js/index.js: client-side code 
 server.js: server-side code
