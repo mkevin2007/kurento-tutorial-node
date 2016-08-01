@@ -7,10 +7,10 @@
 
 Copyright © 2013-2016 [Kurento]. Licensed under [LGPL v2.1 License].
 
-kurento-one2many-call
+NetStream-demo
 =====================
 
-Kurento Java Tutorial: WebRTC one to many video call.
+Netstream Node.js Demo: WebRTC one to many video call.
 
 Running this tutorial
 ---------------------
