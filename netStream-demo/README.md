@@ -7,9 +7,9 @@ Important Files
 =====================
 
 <b>static/index.html:</b> markup <br>
-static/css/netStream.css: style-sheet <br>
-static/js/index.js: client-side code <br>
-server.js: server-side code
+<b>static/css/netStream.css:</b> style-sheet <br>
+<b>static/js/index.js:</b> client-side code <br>
+<b>server.js:</b> server-side code
 
 Debugging help
 =====================
