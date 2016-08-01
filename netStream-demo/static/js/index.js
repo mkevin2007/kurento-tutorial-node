@@ -26,7 +26,6 @@ window.onload = function() {
 	document.getElementById('call').addEventListener('click', function() { presenter(); } );
 	document.getElementById('viewer').addEventListener('click', function() { viewer(); } );
 	document.getElementById('terminate').addEventListener('click', function() { stop(); } );
-		//document.getElementById('register').addEventListener('click', function() {register();});
 }
 
 window.onbeforeunload = function() {
@@ -50,22 +49,8 @@ ws.onmessage = function(message) {
 	case 'iceCandidate':
 		webRtcPeer.addIceCandidate(parsedMessage.candidate)
 		break;
-	case 'registerResponse':
-		resgisterResponse(parsedMessage);
-		break;
 	default:
 		console.error('Unrecognized message', parsedMessage);
-	}
-}
-
-function resgisterResponse(message) {
-	if (message.response == 'accepted') {
-		setRegisterState(REGISTERED);
-	} else {
-		var errorMessage = message.message ? message.message
-				: 'Unknown reason for register rejection.';
-		console.log(errorMessage);
-		alert('Error registering user. See console for further information.');
 	}
 }
 
@@ -74,6 +59,7 @@ function presenterResponse(message) {
 		var errorMsg = message.message ? message.message : 'Unknow error';
 		console.warn('Call not accepted for the following reason: ' + errorMsg);
 		dispose();
+		window.alert(errorMsg);
 	} else {
 		webRtcPeer.processAnswer(message.sdpAnswer);
 	}
@@ -82,15 +68,20 @@ function presenterResponse(message) {
 function viewerResponse(message) {
 	if (message.response != 'accepted') {
 		var errorMsg = message.message ? message.message : 'Unknow error';
+
 		console.warn('Call not accepted for the following reason: ' + errorMsg);
 		dispose();
+		window.alert(errorMsg);
 	} else {
 		webRtcPeer.processAnswer(message.sdpAnswer);
 	}
 }
 
 function presenter() {
-
+	if (document.getElementById('name').value == '') {
+		window.alert("You must specify a name to present!");
+		return;
+	}
 	namePresenter = document.getElementById('name').value;
 
 	if (!webRtcPeer) {
@@ -124,7 +115,7 @@ function onOfferPresenter(error, offerSdp) {
 
 function viewer() {
 	if (document.getElementById('peer').value == '') {
-		window.alert("You must specify the peer name");
+		window.alert("You must specify a peer name!");
 		return;
 	}
 
@@ -203,7 +194,7 @@ function register() {
 
 function sendMessage(message) {
 	var jsonMessage = JSON.stringify(message);
-	console.log('Senging message: ' + jsonMessage);
+	console.log('Sending message: ' + jsonMessage);
 	ws.send(jsonMessage);
 }
 

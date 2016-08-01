@@ -20,9 +20,10 @@ var express = require('express');
 var minimist = require('minimist');
 var ws = require('ws');
 var kurento = require('kurento-client');
-var userRegistry = new UserRegistry();
 var fs    = require('fs');
 var https = require('https');
+var namePresenter = [];
+var namePeer = [];
 
 var argv = minimist(process.argv.slice(2), {
     default: {
@@ -47,7 +48,7 @@ var candidatesQueue = {};
 var kurentoClient = null;
 var presenter = [];
 var viewers = {};
-var noPresenterMessage = 'No active presenter. Try again later...';
+var noPresenterMessage = 'This presenter is not active. Try again later...';
 
 /*
  * Server startup
@@ -69,46 +70,6 @@ function nextUniqueId() {
 	return idCounter.toString();
 }
 
-function UserSession(id, name, ws) {
-    this.id = id;
-    this.name = name;
-    this.ws = ws;
-    this.peer = null;
-    this.sdpOffer = null;
-}
-
-// Represents registrar of users
-function UserRegistry() {
-    this.usersById = {};
-    this.usersByName = {};
-}
-
-UserRegistry.prototype.register = function(user) {
-    this.usersById[user.id] = user;
-    this.usersByName[user.name] = user;
-}
-
-UserRegistry.prototype.unregister = function(id) {
-    var user = this.getById(id);
-    if (user) delete this.usersById[id]
-    if (user && this.getByName(user.name)) delete this.usersByName[user.name];
-}
-
-UserRegistry.prototype.getById = function(id) {
-    return this.usersById[id];
-}
-
-UserRegistry.prototype.getByName = function(name) {
-    return this.usersByName[name];
-}
-
-UserRegistry.prototype.removeById = function(id) {
-    var userSession = this.usersById[id];
-    if (!userSession) return;
-    delete this.usersById[id];
-    delete this.usersByName[userSession.name];
-}
-
 /*
  * Management of WebSocket messages
  */
@@ -119,12 +80,12 @@ wss.on('connection', function(ws) {
 
     ws.on('error', function(error) {
         console.log('Connection ' + sessionId + ' error');
-        stop(sessionId);
+        stop(sessionId, namePeer[sessionId], namePresenter[sessionId]);
     });
 
     ws.on('close', function() {
         console.log('Connection ' + sessionId + ' closed');
-        stop(sessionId, " ",'b');
+        stop(sessionId, namePeer[sessionId], namePresenter[sessionId]);
     });
 
     ws.on('message', function(_message) {
@@ -152,8 +113,6 @@ wss.on('connection', function(ws) {
 
         case 'viewer':
 			console.log("Connecting as viewer : " + sessionId);
-			/*if ( presenter !== null ) 
-				console.log("Presenter is  : " + presenter.id);*/
 			startViewer(sessionId, ws, message.sdpOffer, message.peer, function(error, sdpAnswer) {
 				if (error) {
 					return ws.send(JSON.stringify({
@@ -196,30 +155,6 @@ wss.on('connection', function(ws) {
 /*
  * Definition of functions
  */
-function register(id, name, ws, callback) {
-    function onError(error) {
-        ws.send(JSON.stringify({id:'registerResponse', response : 'rejected ', message: error}));
-    }
-
-    console.log(name);
-    console.log(userRegistry.getByName(name));
-
-    if (!name) {
-        return onError("empty user name");
-    }
-
-    if (userRegistry.getByName(name)) {
-        return onError("User " + name + " is already registered");
-    }
-
-    userRegistry.register(new UserSession(id, name, ws));
-    try {
-        ws.send(JSON.stringify({id: 'registerResponse', response: 'accepted'}));
-    } catch(exception) {
-        onError(exception);
-    }
-}
-
 // Recover kurentoClient for the first time.
 function getKurentoClient(callback) {
 
@@ -248,7 +183,8 @@ function getKurentoClient(callback) {
 function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 	clearCandidatesQueue(sessionId);
 
-	name = name.toString();
+	name = name.toString()
+	namePresenter[sessionId] = name;
 
 	/*if (presenter !== null) {
 		stop(sessionId);
@@ -257,7 +193,7 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 
 	if (presenter[name] !== undefined && presenter[name] !== null) {
 		stop(sessionId);
-		return callback("This name os currently in use. Try again later ...");
+		return callback("This name is currently in use. Try again later ...");
 	}
 
 	console.log("sessionId:" + sessionId);
@@ -353,10 +289,11 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 	clearCandidatesQueue(sessionId);
 
-	peer = peer.toString();
+	namePeer[sessionId] = peer.toString();
+
 
 	if (presenter[peer] === undefined || presenter[peer] === null ) {
-		stop(sessionId,"",peer);
+		stop(sessionId);
 		return callback(noPresenterMessage);
 	}
 
@@ -435,26 +372,25 @@ function clearCandidatesQueue(sessionId) {
 }
 
 function stop(sessionId, peer, name) {
-	if(name !== undefined)
-		name = name.toString();
-
-	if (presenter[name] !== undefined &&  presenter[name] !== null && presenter[name].id == sessionId) {
-		for (var i in viewers[name]) {
-			var viewer = viewers[name][i];
-			if (viewer.ws) {
-				viewer.ws.send(JSON.stringify({
-					id : 'stopCommunication'
-				}));
+	if(name !==undefined || peer !== undefined){
+		if (presenter[name] !== undefined &&  presenter[name] !== null && presenter[name].id == sessionId) {
+			for (var i in viewers[name]) {
+				var viewer = viewers[name][i];
+				if (viewer.ws) {
+					viewer.ws.send(JSON.stringify({
+						id : 'stopCommunication'
+					}));
+				}
 			}
-		}
-		if ( presenter[name].pipeline !== null )
-		  presenter[name].pipeline.release();
-		presenter[name] = null;
-		viewers[name] = [];
+			if ( presenter[name].pipeline !== null )
+			  presenter[name].pipeline.release();
+			presenter[name] = null;
+			viewers[name] = [];
 
-	} else if (viewers[name][sessionId]) {
-		viewers[name][sessionId].webRtcEndpoint.release();
-		delete viewers[name][sessionId];
+		} else if (viewers[peer][sessionId]) {
+			viewers[peer][sessionId].webRtcEndpoint.release();
+			delete viewers[peer][sessionId];
+		}
 	}
 
 	clearCandidatesQueue(sessionId);
