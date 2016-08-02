@@ -8,7 +8,7 @@
 NetStream-demo
 =====================
 
-Netstream Node.js Demo: WebRTC one to many video call.
+Netstream Node.js Demo: WebRTC one to many video call based on http://doc-kurento.readthedocs.io/en/stable/tutorials/node/tutorial-one2many.html
 
 Important Files
 =====================
