@@ -1,0 +1,601 @@
+Kurento Tutorial started
+Open https://video.chatnet.io:8443/ with a WebRTC capable browser
+Connection received with sessionId 1
+Kurento Tutorial started
+Open https://video.chatnet.io:8443/ with a WebRTC capable browser
+Connection received with sessionId 1
+Connection 1 closed
+Connection received with sessionId 2
+Connection 2 closed
+Connection received with sessionId 3
+Connection 3 received message  { id: 'presenter',
+  sdpOffer: 'v=0\r\no=- 5598138253860596328 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS Jmr6lAdS1vMREZxKUjX3xZbEbYzIH6fwRupN\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 103 104 9 0 8 106 105 13 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:hGSeqg7VhPXYX/kx\r\na=ice-pwd:o76rgM/ctGtyg+pXaoNzP4Mk\r\na=fingerprint:sha-256 C5:1E:62:A9:E0:C1:DB:CE:05:4C:F7:09:72:58:23:7A:C4:08:8F:91:32:60:54:35:F9:E1:7B:E8:F7:30:A3:B9\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=sendonly\r\na=rtcp-mux\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:103 ISAC/16000\r\na=rtpmap:104 ISAC/32000\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:106 CN/32000\r\na=rtpmap:105 CN/16000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:126 telephone-event/8000\r\na=maxptime:60\r\na=ssrc:3568858888 cname:SpEegg6XBDuC5LK/\r\na=ssrc:3568858888 msid:Jmr6lAdS1vMREZxKUjX3xZbEbYzIH6fwRupN 4099544e-4b97-41bd-baf6-8fbbb6f1f14a\r\na=ssrc:3568858888 mslabel:Jmr6lAdS1vMREZxKUjX3xZbEbYzIH6fwRupN\r\na=ssrc:3568858888 label:4099544e-4b97-41bd-baf6-8fbbb6f1f14a\r\nm=video 9 UDP/TLS/RTP/SAVPF 100 101 116 117 96 97 98\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:hGSeqg7VhPXYX/kx\r\na=ice-pwd:o76rgM/ctGtyg+pXaoNzP4Mk\r\na=fingerprint:sha-256 C5:1E:62:A9:E0:C1:DB:CE:05:4C:F7:09:72:58:23:7A:C4:08:8F:91:32:60:54:35:F9:E1:7B:E8:F7:30:A3:B9\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:4 urn:3gpp:video-orientation\r\na=sendonly\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:100 VP8/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtcp-fb:100 transport-cc\r\na=rtpmap:101 VP9/90000\r\na=rtcp-fb:101 ccm fir\r\na=rtcp-fb:101 nack\r\na=rtcp-fb:101 nack pli\r\na=rtcp-fb:101 goog-remb\r\na=rtcp-fb:101 transport-cc\r\na=rtpmap:116 red/90000\r\na=rtpmap:117 ulpfec/90000\r\na=rtpmap:96 rtx/90000\r\na=fmtp:96 apt=100\r\na=rtpmap:97 rtx/90000\r\na=fmtp:97 apt=101\r\na=rtpmap:98 rtx/90000\r\na=fmtp:98 apt=116\r\na=ssrc-group:FID 455810039 3146300715\r\na=ssrc:455810039 cname:SpEegg6XBDuC5LK/\r\na=ssrc:455810039 msid:Jmr6lAdS1vMREZxKUjX3xZbEbYzIH6fwRupN 604e82b8-af19-4f72-bc4a-56593c048e80\r\na=ssrc:455810039 mslabel:Jmr6lAdS1vMREZxKUjX3xZbEbYzIH6fwRupN\r\na=ssrc:455810039 label:604e82b8-af19-4f72-bc4a-56593c048e80\r\na=ssrc:3146300715 cname:SpEegg6XBDuC5LK/\r\na=ssrc:3146300715 msid:Jmr6lAdS1vMREZxKUjX3xZbEbYzIH6fwRupN 604e82b8-af19-4f72-bc4a-56593c048e80\r\na=ssrc:3146300715 mslabel:Jmr6lAdS1vMREZxKUjX3xZbEbYzIH6fwRupN\r\na=ssrc:3146300715 label:604e82b8-af19-4f72-bc4a-56593c048e80\r\n',
+  presenter: 'b' }
+Connecting as presenter : 3
+sessionId:3
+Calling ===getKurentoClient===
+Calling ===getKurentoClient2===wss://webrtc.chatnet.io:8433/kurento
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 1 udp 2122262783 2001:470:c2d7:908:34c3:5a30:587e:1ad4 63408 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 1 udp 2122197247 2001:470:c2d7:908:6550:38a5:f804:974c 63409 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 1 udp 2122129151 10.50.252.67 63410 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 2 udp 2122262782 2001:470:c2d7:908:34c3:5a30:587e:1ad4 63411 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 2 udp 2122197246 2001:470:c2d7:908:6550:38a5:f804:974c 63412 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 2 udp 2122129150 10.50.252.67 63413 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 1 udp 2122262783 2001:470:c2d7:908:34c3:5a30:587e:1ad4 63414 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 1 udp 2122197247 2001:470:c2d7:908:6550:38a5:f804:974c 63415 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 1 udp 2122129151 10.50.252.67 63416 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 2 udp 2122262782 2001:470:c2d7:908:34c3:5a30:587e:1ad4 63417 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 2 udp 2122197246 2001:470:c2d7:908:6550:38a5:f804:974c 63418 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 2 udp 2122129150 10.50.252.67 63419 typ host generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Blah!!
+=== In Here==
+Creating MediaPipeline
+Setting ip the pipeline
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 1 tcp 1518283007 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 1 tcp 1518217471 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 1 tcp 1518149375 10.50.252.67 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 2 tcp 1518283006 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 2 tcp 1518217470 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 2 tcp 1518149374 10.50.252.67 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 1 tcp 1518283007 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 1 tcp 1518217471 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 1 tcp 1518149375 10.50.252.67 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 2 tcp 1518283006 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 2 tcp 1518217470 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 2 tcp 1518149374 10.50.252.67 9 typ host tcptype active generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 32273 typ srflx raddr 10.50.252.67 rport 63410 generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 28207 typ srflx raddr 10.50.252.67 rport 63419 generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 25235 typ srflx raddr 10.50.252.67 rport 63413 generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 23136 typ srflx raddr 10.50.252.67 rport 63416 generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 8376 typ srflx raddr 10.50.252.67 rport 63410 generation 0 ufrag hGSeqg7VhPXYX/kx network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection received with sessionId 4
+Connection 4 received message  { id: 'viewer',
+  peer: 'b',
+  sdpOffer: 'v=0\r\no=- 4538255162905072835 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS\r\nm=audio 51824 UDP/TLS/RTP/SAVPF 111 103 104 9 0 8 106 105 13 126\r\nc=IN IP4 10.50.252.67\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=candidate:1769845246 1 udp 2122262783 2001:470:c2d7:908:34c3:5a30:587e:1ad4 51822 typ host generation 0 network-id 3\r\na=candidate:338560126 1 udp 2122197247 2001:470:c2d7:908:6550:38a5:f804:974c 51823 typ host generation 0 network-id 2\r\na=candidate:1367101552 1 udp 2122129151 10.50.252.67 51824 typ host generation 0 network-id 1\r\na=ice-ufrag:T40epBZ1dw0iEGft\r\na=ice-pwd:xBQXTFOz/j8RJmN/5KxpzZ/5\r\na=fingerprint:sha-256 C5:1E:62:A9:E0:C1:DB:CE:05:4C:F7:09:72:58:23:7A:C4:08:8F:91:32:60:54:35:F9:E1:7B:E8:F7:30:A3:B9\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=recvonly\r\na=rtcp-mux\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:103 ISAC/16000\r\na=rtpmap:104 ISAC/32000\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:106 CN/32000\r\na=rtpmap:105 CN/16000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:126 telephone-event/8000\r\na=maxptime:60\r\nm=video 9 UDP/TLS/RTP/SAVPF 100 101 116 117 96 97 98\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:T40epBZ1dw0iEGft\r\na=ice-pwd:xBQXTFOz/j8RJmN/5KxpzZ/5\r\na=fingerprint:sha-256 C5:1E:62:A9:E0:C1:DB:CE:05:4C:F7:09:72:58:23:7A:C4:08:8F:91:32:60:54:35:F9:E1:7B:E8:F7:30:A3:B9\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:4 urn:3gpp:video-orientation\r\na=recvonly\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:100 VP8/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtcp-fb:100 transport-cc\r\na=rtpmap:101 VP9/90000\r\na=rtcp-fb:101 ccm fir\r\na=rtcp-fb:101 nack\r\na=rtcp-fb:101 nack pli\r\na=rtcp-fb:101 goog-remb\r\na=rtcp-fb:101 transport-cc\r\na=rtpmap:116 red/90000\r\na=rtpmap:117 ulpfec/90000\r\na=rtpmap:96 rtx/90000\r\na=fmtp:96 apt=100\r\na=rtpmap:97 rtx/90000\r\na=fmtp:97 apt=101\r\na=rtpmap:98 rtx/90000\r\na=fmtp:98 apt=116\r\n' }
+Connecting as viewer : 4
+b
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 1 udp 2122262783 2001:470:c2d7:908:34c3:5a30:587e:1ad4 51822 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 1 udp 2122197247 2001:470:c2d7:908:6550:38a5:f804:974c 51823 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 1 udp 2122129151 10.50.252.67 51824 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 2 udp 2122262782 2001:470:c2d7:908:34c3:5a30:587e:1ad4 51825 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 2 udp 2122197246 2001:470:c2d7:908:6550:38a5:f804:974c 51826 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 2 udp 2122129150 10.50.252.67 51827 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 1 udp 2122262783 2001:470:c2d7:908:34c3:5a30:587e:1ad4 51828 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 1 udp 2122197247 2001:470:c2d7:908:6550:38a5:f804:974c 51829 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 1 udp 2122129151 10.50.252.67 51830 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 2 udp 2122262782 2001:470:c2d7:908:34c3:5a30:587e:1ad4 51831 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 2 udp 2122197246 2001:470:c2d7:908:6550:38a5:f804:974c 51832 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 2 udp 2122129150 10.50.252.67 51833 typ host generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 1 tcp 1518283007 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 1 tcp 1518217471 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 1 tcp 1518149375 10.50.252.67 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 2 tcp 1518283006 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 2 tcp 1518217470 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 2 tcp 1518149374 10.50.252.67 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 1 tcp 1518283007 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 1 tcp 1518217471 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 1 tcp 1518149375 10.50.252.67 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 2 tcp 1518283006 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 2 tcp 1518217470 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 2 tcp 1518149374 10.50.252.67 9 typ host tcptype active generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 11946 typ srflx raddr 10.50.252.67 rport 51824 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 5806 typ srflx raddr 10.50.252.67 rport 51827 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 15288 typ srflx raddr 10.50.252.67 rport 51833 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 10929 typ srflx raddr 10.50.252.67 rport 51830 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 18392 typ srflx raddr 10.50.252.67 rport 51827 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 14518 typ srflx raddr 10.50.252.67 rport 51824 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 3003 typ srflx raddr 10.50.252.67 rport 51833 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 4 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 18340 typ srflx raddr 10.50.252.67 rport 51830 generation 0 ufrag T40epBZ1dw0iEGft network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'stop', name: 'b' }
+Connection 4 closed
+Connection 3 received message  { id: 'presenter',
+  sdpOffer: 'v=0\r\no=- 3296626909843756713 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS brZ47BaSc3IfE8c3jTvcyJhUepJ9ZItYcFMe\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 103 104 9 0 8 106 105 13 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:WGr689pwe4+3XS9M\r\na=ice-pwd:9A0WTaQmvSqkKXMaFf14IWY4\r\na=fingerprint:sha-256 C5:1E:62:A9:E0:C1:DB:CE:05:4C:F7:09:72:58:23:7A:C4:08:8F:91:32:60:54:35:F9:E1:7B:E8:F7:30:A3:B9\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=sendonly\r\na=rtcp-mux\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:103 ISAC/16000\r\na=rtpmap:104 ISAC/32000\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:106 CN/32000\r\na=rtpmap:105 CN/16000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:126 telephone-event/8000\r\na=maxptime:60\r\na=ssrc:4039161874 cname:gKYhVvgBbldb+BBH\r\na=ssrc:4039161874 msid:brZ47BaSc3IfE8c3jTvcyJhUepJ9ZItYcFMe 652aa753-9547-4942-a73b-27d90ddc8eb9\r\na=ssrc:4039161874 mslabel:brZ47BaSc3IfE8c3jTvcyJhUepJ9ZItYcFMe\r\na=ssrc:4039161874 label:652aa753-9547-4942-a73b-27d90ddc8eb9\r\nm=video 9 UDP/TLS/RTP/SAVPF 100 101 116 117 96 97 98\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:WGr689pwe4+3XS9M\r\na=ice-pwd:9A0WTaQmvSqkKXMaFf14IWY4\r\na=fingerprint:sha-256 C5:1E:62:A9:E0:C1:DB:CE:05:4C:F7:09:72:58:23:7A:C4:08:8F:91:32:60:54:35:F9:E1:7B:E8:F7:30:A3:B9\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:4 urn:3gpp:video-orientation\r\na=sendonly\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:100 VP8/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtcp-fb:100 transport-cc\r\na=rtpmap:101 VP9/90000\r\na=rtcp-fb:101 ccm fir\r\na=rtcp-fb:101 nack\r\na=rtcp-fb:101 nack pli\r\na=rtcp-fb:101 goog-remb\r\na=rtcp-fb:101 transport-cc\r\na=rtpmap:116 red/90000\r\na=rtpmap:117 ulpfec/90000\r\na=rtpmap:96 rtx/90000\r\na=fmtp:96 apt=100\r\na=rtpmap:97 rtx/90000\r\na=fmtp:97 apt=101\r\na=rtpmap:98 rtx/90000\r\na=fmtp:98 apt=116\r\na=ssrc-group:FID 2605497677 1627883772\r\na=ssrc:2605497677 cname:gKYhVvgBbldb+BBH\r\na=ssrc:2605497677 msid:brZ47BaSc3IfE8c3jTvcyJhUepJ9ZItYcFMe 26883128-8e8d-4747-8bf4-6eebec95bb90\r\na=ssrc:2605497677 mslabel:brZ47BaSc3IfE8c3jTvcyJhUepJ9ZItYcFMe\r\na=ssrc:2605497677 label:26883128-8e8d-4747-8bf4-6eebec95bb90\r\na=ssrc:1627883772 cname:gKYhVvgBbldb+BBH\r\na=ssrc:1627883772 msid:brZ47BaSc3IfE8c3jTvcyJhUepJ9ZItYcFMe 26883128-8e8d-4747-8bf4-6eebec95bb90\r\na=ssrc:1627883772 mslabel:brZ47BaSc3IfE8c3jTvcyJhUepJ9ZItYcFMe\r\na=ssrc:1627883772 label:26883128-8e8d-4747-8bf4-6eebec95bb90\r\n',
+  presenter: 'b' }
+Connecting as presenter : 3
+sessionId:3
+Calling ===getKurentoClient===
+=== In Here==
+Creating MediaPipeline
+Setting ip the pipeline
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 1 udp 2122262783 2001:470:c2d7:908:34c3:5a30:587e:1ad4 64880 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 1 udp 2122197247 2001:470:c2d7:908:6550:38a5:f804:974c 64881 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 1 udp 2122129151 10.50.252.67 64882 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 2 udp 2122262782 2001:470:c2d7:908:34c3:5a30:587e:1ad4 64883 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 2 udp 2122197246 2001:470:c2d7:908:6550:38a5:f804:974c 64884 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 2 udp 2122129150 10.50.252.67 64885 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 1 udp 2122262783 2001:470:c2d7:908:34c3:5a30:587e:1ad4 64886 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 1 udp 2122197247 2001:470:c2d7:908:6550:38a5:f804:974c 64887 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 1 udp 2122129151 10.50.252.67 64888 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1769845246 2 udp 2122262782 2001:470:c2d7:908:34c3:5a30:587e:1ad4 64889 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:338560126 2 udp 2122197246 2001:470:c2d7:908:6550:38a5:f804:974c 64890 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1367101552 2 udp 2122129150 10.50.252.67 64891 typ host generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 2553 typ srflx raddr 10.50.252.67 rport 64882 generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 24808 typ srflx raddr 10.50.252.67 rport 64888 generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 32757 typ srflx raddr 10.50.252.67 rport 64885 generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 32404 typ srflx raddr 10.50.252.67 rport 64891 generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 1 tcp 1518283007 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 1 tcp 1518217471 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 1 tcp 1518149375 10.50.252.67 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 2 tcp 1518283006 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 2 tcp 1518217470 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 2 tcp 1518149374 10.50.252.67 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 1 tcp 1518283007 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 1 tcp 1518217471 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 1 tcp 1518149375 10.50.252.67 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:670977294 2 tcp 1518283006 2001:470:c2d7:908:34c3:5a30:587e:1ad4 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 3',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:1521350798 2 tcp 1518217470 2001:470:c2d7:908:6550:38a5:f804:974c 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 2',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:536849536 2 tcp 1518149374 10.50.252.67 9 typ host tcptype active generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 19252 typ srflx raddr 10.50.252.67 rport 64885 generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 1 udp 1685921535 12.139.6.226 19229 typ srflx raddr 10.50.252.67 rport 64882 generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'audio',
+     sdpMLineIndex: 0 } }
+Queueing candidate
+Connection 3 received message  { id: 'onIceCandidate',
+  candidate: 
+   { candidate: 'candidate:2808883620 2 udp 1685921534 12.139.6.226 14951 typ srflx raddr 10.50.252.67 rport 64891 generation 0 ufrag WGr689pwe4+3XS9M network-id 1',
+     sdpMid: 'video',
+     sdpMLineIndex: 1 } }
+Queueing candidate
+Connection 3 received message  { id: 'stop', name: 'b' }
+Connection 3 closed
+
+TypeError: Cannot read property '3' of undefined
+    at stop (/home/ubuntu/netStream/netStream-demo/server.js:390:27)
+    at WebSocket.<anonymous> (/home/ubuntu/netStream/netStream-demo/server.js:88:9)
+    at WebSocket.emit (events.js:117:20)
+    at WebSocket.cleanupWebsocketResources (/home/ubuntu/netStream/netStream-demo/node_modules/ws/lib/WebSocket.js:904:10)
+    at CleartextStream.emit (events.js:95:17)
+    at tls.js:694:10
+    at process._tickDomainCallback (node.js:502:13)

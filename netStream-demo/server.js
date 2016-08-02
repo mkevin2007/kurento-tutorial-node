@@ -305,12 +305,14 @@ function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 			return callback(error);
 		}
 
-		viewers[peer] = [];
+		if(!viewers[peer])
+			viewers[peer] = [];
 
 		viewers[peer][sessionId] = {
 			"webRtcEndpoint" : webRtcEndpoint,
 			"ws" : ws
 		}
+				console.log(viewers[peer]);
 
 		if (presenter[peer] === null) {
 			stop(sessionId,"",peer);
@@ -375,8 +377,12 @@ function stop(sessionId, peer, name) {
 	if(name !==undefined || peer !== undefined){
 		if (presenter[name] !== undefined &&  presenter[name] !== null && presenter[name].id == sessionId) {
 			for (var i in viewers[name]) {
+				console.log(viewers[name][i]);
 				var viewer = viewers[name][i];
+
 				if (viewer.ws) {
+
+
 					viewer.ws.send(JSON.stringify({
 						id : 'stopCommunication'
 					}));
