@@ -95,8 +95,6 @@ function presenter() {
 		webRtcPeer = kurentoUtils.WebRtcPeer.WebRtcPeerSendonly(options, function(error) {
 			if(error) return onError(error);
 
-			console.log(webRtcPeer);
-
 			this.generateOffer(onOfferPresenter);
 		});
 	}
