@@ -599,3 +599,10 @@ TypeError: Cannot read property '3' of undefined
     at CleartextStream.emit (events.js:95:17)
     at tls.js:694:10
     at process._tickDomainCallback (node.js:502:13)
+Kurento Tutorial started
+Open https://video.chatnet.io:8443/ with a WebRTC capable browser
+Connection received with sessionId 1
+Connection 1 closed
+Connection received with sessionId 2
+Connection 2 closed
+Connection received with sessionId 3

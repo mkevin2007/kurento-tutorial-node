@@ -27,7 +27,7 @@ var namePeer = [];
 
 var argv = minimist(process.argv.slice(2), {
     default: {
-        as_uri: 'https://video.chatnet.io:8443/',
+        as_uri: 'https://webrtc.chatnet.io:8443/',
         ws_uri: 'wss://webrtc.chatnet.io:8433/kurento'
     }
 });
@@ -62,7 +62,7 @@ var server = https.createServer(options, app).listen(port, function() {
 
 var wss = new ws.Server({
     server : server,
-    path : '/one2many'
+    path : '/netStream-demo'
 });
 
 function nextUniqueId() {
