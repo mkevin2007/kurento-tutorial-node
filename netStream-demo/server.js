@@ -297,8 +297,6 @@ function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 		return callback(noPresenterMessage);
 	}
 
-	console.log(peer);
-
 	presenter[peer].pipeline.create('WebRtcEndpoint', function(error, webRtcEndpoint) {
 		if (error) {
 			stop(sessionId,"",peer);
@@ -312,7 +310,6 @@ function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 			"webRtcEndpoint" : webRtcEndpoint,
 			"ws" : ws
 		}
-				console.log(viewers[peer]);
 
 		if (presenter[peer] === null) {
 			stop(sessionId,"",peer);
@@ -377,25 +374,23 @@ function stop(sessionId, peer, name) {
 	if(name !==undefined || peer !== undefined){
 		if (presenter[name] !== undefined &&  presenter[name] !== null && presenter[name].id == sessionId) {
 			for (var i in viewers[name]) {
-				console.log(viewers[name][i]);
 				var viewer = viewers[name][i];
-
 				if (viewer.ws) {
-
-
 					viewer.ws.send(JSON.stringify({
 						id : 'stopCommunication'
 					}));
 				}
 			}
 			if ( presenter[name].pipeline !== null )
-			  presenter[name].pipeline.release();
+				presenter[name].pipeline.release();
 			presenter[name] = null;
 			viewers[name] = [];
+			delete(namePresenter[sessionId]);
 
-		} else if (viewers[peer][sessionId]) {
+		}else if (viewers[peer][sessionId]) {
 			viewers[peer][sessionId].webRtcEndpoint.release();
 			delete viewers[peer][sessionId];
+			delete namePeer[sessionId];
 		}
 	}
 
