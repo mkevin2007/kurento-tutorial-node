@@ -82,9 +82,10 @@ function presenter() {
 		window.alert("You must specify a name to present!");
 		return;
 	}
-	namePresenter = document.getElementById('name').value;
+
 
 	if (!webRtcPeer) {
+	    namePresenter = document.getElementById('name').value;
 		showSpinner(video);
 
 		var options = {
@@ -117,9 +118,8 @@ function viewer() {
 		return;
 	}
 
-	namePeer = document.getElementById('peer').value;
-
 	if (!webRtcPeer) {
+		namePeer = document.getElementById('peer').value;
 		showSpinner(video);
 
 		var options = {
