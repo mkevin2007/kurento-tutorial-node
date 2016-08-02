@@ -184,7 +184,6 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 	clearCandidatesQueue(sessionId);
 
 	name = name.toString()
-	namePresenter[sessionId] = name;
 
 	/*if (presenter !== null) {
 		stop(sessionId);
@@ -196,6 +195,7 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 		return callback("This name is currently in use. Try again later ...");
 	}
 
+	namePresenter[sessionId] = name;
 	console.log("sessionId:" + sessionId);
 
 	sessionId = sessionId.toString();
@@ -288,14 +288,14 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 
 function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 	clearCandidatesQueue(sessionId);
-
-	namePeer[sessionId] = peer.toString();
-
+	peer = peer.toString();
 
 	if (presenter[peer] === undefined || presenter[peer] === null ) {
 		stop(sessionId);
 		return callback(noPresenterMessage);
 	}
+
+	namePeer[sessionId] = peer;
 
 	presenter[peer].pipeline.create('WebRtcEndpoint', function(error, webRtcEndpoint) {
 		if (error) {
