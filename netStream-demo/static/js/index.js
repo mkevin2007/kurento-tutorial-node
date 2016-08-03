@@ -190,7 +190,6 @@ function dispose() {
 	hideSpinner(video);
 }
 
-
 function sendMessage(message) {
 	var jsonMessage = JSON.stringify(message);
 	console.log('Sending message: ' + jsonMessage);

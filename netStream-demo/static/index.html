@@ -190,11 +190,11 @@
           </div>
           <br/>
           <label class="control-label" for="console">Console</label>
-          <button id="clearConsole"  class="btn btn-link" onclick= "$('ul').empty()" >Clear Console</button> 
+          <button id="clearConsole"  class="btn btn-link" onclick= "$('#consoleList').empty()" >Clear Console</button> 
           <button id="buttonConsole" style="padding:0" class="btn btn-link" onclick="toggleConsole()">Hide Console</button>
           <br><br>
           <div id="console" class="democonsole">
-            <ul></ul>
+            <ul id="consoleList"></ul>
           </div>
         </div>
         <div class="col-md-7">
