@@ -186,6 +186,7 @@ function dispose() {
 		webRtcPeer.dispose();
 		webRtcPeer = null;
 	}
+	$('#viewers').addClass("hide");
 	hideSpinner(video);
 }
 
