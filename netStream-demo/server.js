@@ -85,7 +85,7 @@ wss.on('connection', function(ws) {
 
     ws.on('close', function() {
         console.log('Connection ' + sessionId + ' closed');
-        stop(sessionId, namePeer[sessionId], namePresenter[sessionId]);
+        stop(sessionId, namePeer[sessionId], namePresenter[sessionId],namePeer[sessionId]);
     });
 
     ws.on('message', function(_message) {
@@ -132,10 +132,11 @@ wss.on('connection', function(ws) {
 
         case 'stop':
             stop(sessionId, message.peer, message.name);
+
             break; 
 
         case 'onIceCandidate':
-            onIceCandidate(sessionId, message.candidate, message.peer);
+            onIceCandidate(sessionId, message.candidate, message.presenter	, message.peer);
             break;
 
         case 'register':
@@ -245,6 +246,7 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 				}
 
 				presenter[name].webRtcEndpoint = webRtcEndpoint;
+				presenter[name].ws= ws;
 
                 if (candidatesQueue[sessionId]) {
                     while(candidatesQueue[sessionId].length) {
@@ -304,13 +306,15 @@ function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 		}
 
 		if(!viewers[peer])
-			viewers[peer] = [];
+			viewers[peer] = {};
 
 		viewers[peer][sessionId] = {
 			"webRtcEndpoint" : webRtcEndpoint,
 			"ws" : ws
 		}
-
+		
+		updateViewerCount(peer);
+		
 		if (presenter[peer] === null) {
 			stop(sessionId,"",peer);
 			return callback(noPresenterMessage);
@@ -387,34 +391,78 @@ function stop(sessionId, peer, name) {
 			viewers[name] = [];
 			delete(namePresenter[sessionId]);
 
-		}else if (viewers[peer][sessionId]) {
+		}else if (viewers[peer] && viewers[peer][sessionId]) {
 			viewers[peer][sessionId].webRtcEndpoint.release();
 			delete viewers[peer][sessionId];
 			delete namePeer[sessionId];
+
+			updateViewerCount(peer);
 		}
 	}
 
 	clearCandidatesQueue(sessionId);
 }
 
-function onIceCandidate(sessionId, _candidate) {
+function onIceCandidate(sessionId, _candidate, name, peer) {
     var candidate = kurento.register.complexTypes.IceCandidate(_candidate);
 
-    if (presenter["2"] && presenter["2"].id === sessionId && presenter["2"].webRtcEndpoint) {
-        console.info('Sending presenter candidate');
-        presenter["2"].webRtcEndpoint.addIceCandidate(candidate);
-    }
-    else if (viewers[sessionId] && viewers[sessionId].webRtcEndpoint) {
-        console.info('Sending viewer candidate');
-        viewers[sessionId].webRtcEndpoint.addIceCandidate(candidate);
-    }
-    else {
-        console.info('Queueing candidate');
-        if (!candidatesQueue[sessionId]) {
-            candidatesQueue[sessionId] = [];
-        }
-        candidatesQueue[sessionId].push(candidate);
-    }
+    if(peer){
+    	console.log("peer:" , viewers[peer]);
+
+	    if (presenter[peer] && presenter[peer].id === sessionId && presenter[peer].webRtcEndpoint) {
+	        console.info('Sending presenter candidate');
+	        presenter[name].webRtcEndpoint.addIceCandidate(candidate);
+	    }
+
+	    else if (viewers[peer] && viewers[peer][sessionId] && viewers[peer][sessionId].webRtcEndpoint) {
+	        console.info('Sending viewer candidate');
+	        viewers[peer][sessionId].webRtcEndpoint.addIceCandidate(candidate);
+	        		console.log("length:" + viewers[peer].length);
+	    }
+	    else {
+	        console.info('Queueing candidate');
+	        if (!candidatesQueue[sessionId]) {
+	            candidatesQueue[sessionId] = [];
+	        }
+	        candidatesQueue[sessionId].push(candidate);
+	    }
+	}
+	else{	    
+		if (presenter[name] && presenter[name].id === sessionId && presenter[name].webRtcEndpoint) {
+	        console.info('Sending presenter candidate');
+	        presenter[name].webRtcEndpoint.addIceCandidate(candidate);
+	    }
+	    else if (viewers[name] && viewers[name][sessionId] && viewers[name][sessionId].webRtcEndpoint) {
+	        console.info('Sending viewer candidate');
+	        viewers[name][sessionId].webRtcEndpoint.addIceCandidate(candidate);
+	    }
+	    else {
+	        console.info('Queueing candidate');
+	        if (!candidatesQueue[sessionId]) {
+	            candidatesQueue[sessionId] = [];
+	        }
+	        candidatesQueue[sessionId].push(candidate);
+	    }
+
+	}
+}
+
+// Update viewers count for the presenter and the viewers
+function updateViewerCount(peer){
+	presenter[peer].ws.send(JSON.stringify({
+		id : 'updateViewers',
+		length: Object.keys(viewers[peer]).length
+	}));
+
+	for (var i in viewers[peer]) {
+		var viewer = viewers[peer][i];
+		if (viewer.ws) {
+			viewer.ws.send(JSON.stringify({
+				id : 'updateViewers',
+				length: Object.keys(viewers[peer]).length
+			}));
+		}
+	}
 }
 
 app.use(function(req, res, next) {

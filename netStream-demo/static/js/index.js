@@ -49,6 +49,12 @@ ws.onmessage = function(message) {
 	case 'iceCandidate':
 		webRtcPeer.addIceCandidate(parsedMessage.candidate)
 		break;
+	case 'updateViewers':
+		if(parsedMessage.length == 0 || parsedMessage.length == 1)
+			$('#viewers').text(parsedMessage.length + " Viewer");
+		else
+			$('#viewers').text(parsedMessage.length + " Viewers");
+		break;
 	default:
 		console.error('Unrecognized message', parsedMessage);
 	}
@@ -62,6 +68,9 @@ function presenterResponse(message) {
 		window.alert(errorMsg);
 	} else {
 		webRtcPeer.processAnswer(message.sdpAnswer);
+		$('#viewers').text("0 Viewer");
+		$('#viewers').removeClass("hide");
+
 	}
 }
 
@@ -73,7 +82,8 @@ function viewerResponse(message) {
 		dispose();
 		window.alert(errorMsg);
 	} else {
-		webRtcPeer.processAnswer(message.sdpAnswer);
+		webRtcPeer.processAnswer(message.sdpAnswer);	
+		$('#viewers').removeClass("hide");
 	}
 }
 
@@ -82,7 +92,6 @@ function presenter() {
 		window.alert("You must specify a name to present!");
 		return;
 	}
-
 
 	if (!webRtcPeer) {
 	    namePresenter = document.getElementById('name').value;
@@ -151,13 +160,17 @@ function onIceCandidate(candidate) {
 
 	   var message = {
 	      id : 'onIceCandidate',
-	      candidate : candidate
+	      candidate : candidate,
+		  presenter: namePresenter,
+	      peer : namePeer
 	   }
 	   sendMessage(message);
 }
 
 function stop() {
 	if (webRtcPeer) {
+		$('#viewers').addClass("hide");
+
 		var message = {
 				id : 'stop',
 				peer: namePeer,
@@ -176,19 +189,6 @@ function dispose() {
 	hideSpinner(video);
 }
 
-function register() {
-	var name = 'Bob';
-	if (name == '') {
-		window.alert("You must insert your user name");
-		return;
-	}
-
-	var message = {
-		id : 'register',
-		name : name
-	};
-	sendMessage(message);
-}
 
 function sendMessage(message) {
 	var jsonMessage = JSON.stringify(message);
