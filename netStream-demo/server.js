@@ -193,7 +193,6 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 	}
 
 	namePresenter[sessionId] = name;
-	console.log("sessionId:" + sessionId);
 
 	sessionId = sessionId.toString();
 
@@ -364,7 +363,6 @@ function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 	});
 }
 
-
 function clearCandidatesQueue(sessionId) {
 	if (candidatesQueue[sessionId]) {
 		delete candidatesQueue[sessionId];
@@ -403,12 +401,16 @@ function stop(sessionId, peer, name) {
 	clearCandidatesQueue(sessionId);
 }
 
+/*Interactive Connectivity Establishment (ICE) is a technique used to achieve NAT Traversal. 
+ICE makes use of the STUN protocol and its extension, TURN. ICE can be used by any protocol utilizing the offer/answer model.
+NAT traversal (sometimes abbreviated as NAT-T) is a general term for techniques that establish and maintain Internet 
+protocol connections traversing network address translation (NAT) gateways, which break end-to-end connectivity. 
+Intercepting and modifying traffic can only be performed transparently in the absence of secure encryption and authentication.*/
 function onIceCandidate(sessionId, _candidate, name, peer) {
     var candidate = kurento.register.complexTypes.IceCandidate(_candidate);
 
+    //viewer case
     if(peer){
-    	console.log("peer:" , viewers[peer]);
-
 	    if (presenter[peer] && presenter[peer].id === sessionId && presenter[peer].webRtcEndpoint) {
 	        console.info('Sending presenter candidate');
 	        presenter[name].webRtcEndpoint.addIceCandidate(candidate);
@@ -417,7 +419,6 @@ function onIceCandidate(sessionId, _candidate, name, peer) {
 	    else if (viewers[peer] && viewers[peer][sessionId] && viewers[peer][sessionId].webRtcEndpoint) {
 	        console.info('Sending viewer candidate');
 	        viewers[peer][sessionId].webRtcEndpoint.addIceCandidate(candidate);
-	        		console.log("length:" + viewers[peer].length);
 	    }
 	    else {
 	        console.info('Queueing candidate');
@@ -427,6 +428,7 @@ function onIceCandidate(sessionId, _candidate, name, peer) {
 	        candidatesQueue[sessionId].push(candidate);
 	    }
 	}
+	//presenter case
 	else{	    
 		if (presenter[name] && presenter[name].id === sessionId && presenter[name].webRtcEndpoint) {
 	        console.info('Sending presenter candidate');
@@ -447,7 +449,7 @@ function onIceCandidate(sessionId, _candidate, name, peer) {
 	}
 }
 
-// Update viewers count for the presenter and the viewers
+//Update viewers count for the presenter and the viewers
 function updateViewerCount(peer){
 	presenter[peer].ws.send(JSON.stringify({
 		id : 'updateViewers',
