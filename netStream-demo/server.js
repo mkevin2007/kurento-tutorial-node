@@ -181,15 +181,11 @@ function getKurentoClient(callback) {
     });
 }
 
+//Start the presenter session and assign variables regarding the presenter
 function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 	clearCandidatesQueue(sessionId);
 
 	name = name.toString()
-
-	/*if (presenter !== null) {
-		stop(sessionId);
-		return callback("Another user is currently acting as presenter. Try again later ...");
-	}*/
 
 	if (presenter[name] !== undefined && presenter[name] !== null) {
 		stop(sessionId);
@@ -288,6 +284,7 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 	});
 }
 
+//start the viewer session
 function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 	clearCandidatesQueue(sessionId);
 	peer = peer.toString();
@@ -374,8 +371,10 @@ function clearCandidatesQueue(sessionId) {
 	}
 }
 
+//stop the session
 function stop(sessionId, peer, name) {
 	if(name !==undefined || peer !== undefined){
+		//presenter case
 		if (presenter[name] !== undefined &&  presenter[name] !== null && presenter[name].id == sessionId) {
 			for (var i in viewers[name]) {
 				var viewer = viewers[name][i];
@@ -391,6 +390,7 @@ function stop(sessionId, peer, name) {
 			viewers[name] = [];
 			delete(namePresenter[sessionId]);
 
+		//viewer case
 		}else if (viewers[peer] && viewers[peer][sessionId]) {
 			viewers[peer][sessionId].webRtcEndpoint.release();
 			delete viewers[peer][sessionId];

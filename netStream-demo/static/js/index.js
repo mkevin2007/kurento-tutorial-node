@@ -23,6 +23,7 @@ window.onload = function() {
 	console = new Console();
 	video = document.getElementById('video');
 
+	//assign the buttons
 	document.getElementById('call').addEventListener('click', function() { presenter(); } );
 	document.getElementById('viewer').addEventListener('click', function() { viewer(); } );
 	document.getElementById('terminate').addEventListener('click', function() { stop(); } );
@@ -32,6 +33,7 @@ window.onbeforeunload = function() {
 	ws.close();
 }
 
+//message cases coming from the server
 ws.onmessage = function(message) {
 	var parsedMessage = JSON.parse(message.data);
 	console.info('Received message: ' + message.data);
@@ -110,6 +112,7 @@ function presenter() {
 	}
 }
 
+//Presenter message generated to send to the server
 function onOfferPresenter(error, offerSdp) {
     if (error) return onError(error);
 
@@ -144,6 +147,7 @@ function viewer() {
 	}
 }
 
+//Viewer message generated to send to the server
 function onOfferViewer(error, offerSdp) {
 	if (error) return onError(error)
 
@@ -181,13 +185,14 @@ function stop() {
 	}
 }
 
+//clear the video box
 function dispose() {
 	if (webRtcPeer) {
 		webRtcPeer.dispose();
 		webRtcPeer = null;
 	}
 	$('#viewers').addClass("hide");
-	hideSpinner(video);
+		hideSpinner(video);
 }
 
 function sendMessage(message) {
