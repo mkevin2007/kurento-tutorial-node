@@ -227,7 +227,7 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 				return callback(noPresenterMessage);
 			}
 
-			console.log("Setting ip the pipeline");
+			console.log("Setting up the pipeline");
 			presenter[name].pipeline = pipeline;
 			pipeline.create('WebRtcEndpoint', function(error, webRtcEndpoint) {
 				if (error) {
