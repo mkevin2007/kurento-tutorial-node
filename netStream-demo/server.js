@@ -466,7 +466,7 @@ function updateViewerCount(peer){
 				}));
 			}
 		}
-	}, 100);
+	}, 300);
 }
 
 
