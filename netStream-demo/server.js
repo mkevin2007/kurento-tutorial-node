@@ -189,7 +189,7 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 
 	namePresenter[sessionId] = name;
 
-	//`sessionId = sessionId.toString();
+	sessionId = sessionId.toString();
 
 	presenter[name] = {
 		id : sessionId,
@@ -455,16 +455,20 @@ function updateViewerCount(peer){
 		length: Object.keys(viewers[peer]).length
 	}));
 
-	for (var i in viewers[peer]) {
-		var viewer = viewers[peer][i];
-		if (viewer.ws) {
-			viewer.ws.send(JSON.stringify({
-				id : 'updateViewers',
-				length: Object.keys(viewers[peer]).length
-			}));
+	//The timeout is to prevent race conditions of closing multiple sessions at the same time
+	setTimeout(function(){
+		for (var i in viewers[peer]) {
+			var viewer = viewers[peer][i];
+			if (viewer.ws) {
+				viewer.ws.send(JSON.stringify({
+					id : 'updateViewers',
+					length: Object.keys(viewers[peer]).length
+				}));
+			}
 		}
-	}
+	}, 100);
 }
+
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', req.get('Origin') || '*');
