@@ -132,15 +132,10 @@ wss.on('connection', function(ws) {
 
         case 'stop':
             stop(sessionId, message.peer, message.name);
-
             break; 
 
         case 'onIceCandidate':
             onIceCandidate(sessionId, message.candidate, message.presenter	, message.peer);
-            break;
-
-        case 'register':
-            register(sessionId, message.name, ws);
             break;
 
         default:
@@ -194,7 +189,7 @@ function startPresenter(sessionId, ws, sdpOffer, name, callback) {
 
 	namePresenter[sessionId] = name;
 
-	sessionId = sessionId.toString();
+	//`sessionId = sessionId.toString();
 
 	presenter[name] = {
 		id : sessionId,
@@ -341,6 +336,8 @@ function startViewer(sessionId, ws, sdpOffer, peer, callback) {
 				return callback(noPresenterMessage);
 			}
 
+			//connect the presenter with the viewer. presenter[peer].webRtcEndpoint = presenters endpoint 
+			//webRtcEndpoint = viewer's endpoint
 			presenter[peer].webRtcEndpoint.connect(webRtcEndpoint, function(error) {
 				if (error) {
 					stop(sessionId,"",peer);
@@ -369,11 +366,12 @@ function clearCandidatesQueue(sessionId) {
 	}
 }
 
-//stop the session
+//stop the streaming or viewing session
 function stop(sessionId, peer, name) {
 	if(name !==undefined || peer !== undefined){
 		//presenter case
 		if (presenter[name] !== undefined &&  presenter[name] !== null && presenter[name].id == sessionId) {
+			//stop communication with all the viewers
 			for (var i in viewers[name]) {
 				var viewer = viewers[name][i];
 				if (viewer.ws) {
@@ -382,6 +380,7 @@ function stop(sessionId, peer, name) {
 					}));
 				}
 			}
+			//delete the presenter that stopped
 			if ( presenter[name].pipeline !== null )
 				presenter[name].pipeline.release();
 			presenter[name] = null;
